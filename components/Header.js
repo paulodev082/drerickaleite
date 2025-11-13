@@ -1,60 +1,89 @@
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#4C0C16]/95 shadow-lg backdrop-blur-md border-b border-[#D9AD6A]/80"
-          : "bg-[#4C0C16] border-b border-[#D9AD6A]/30"
-      }`}
-    >
-      <nav className="container mx-auto flex justify-between items-center py-3 px-6 md:px-12">
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-16 h-16 transform scale-110">
+    <header className="fixed w-full top-0 left-0 z-50 bg-[#4C0C16]/95 backdrop-blur-md shadow-md">
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <div className="flex items-center space-x-3">
+          <div className="relative w-14 h-14">
             <Image
-              src="/images/avatar.jpg"
+              src="/images/ERICKA01.jpg"
               alt="Logo Dra. Ericka Leite"
               fill
-              className="object-contain rounded-full border-2 border-[#D9AD6A]/90 shadow-md"
+              className="object-contain"
             />
           </div>
-          <span className="text-[#D9AD6A] text-lg font-semibold tracking-widest">
+          <span className="text-[#D9AD6A] font-semibold text-lg">
             Advocacia
           </span>
-        </Link>
+        </div>
 
-        {/* LINKS */}
-        <ul className="hidden md:flex gap-10 text-[#FAF8F5] font-medium">
-          {[
-            { name: "Início", href: "#inicio" },
-            { name: "Sobre", href: "#sobre" },
-            { name: "Serviços", href: "#servicos" },
-            { name: "Contato", href: "#contato" },
-          ].map((item, i) => (
-            <li key={i}>
-              <a
-                href={item.href}
-                className="relative group transition-colors"
-              >
-                {item.name}
-                <span className="absolute left-0 bottom-[-3px] w-0 h-[2px] bg-[#D9AD6A] transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        {/* Menu Desktop */}
+        <nav className="hidden md:flex space-x-10 text-white font-medium">
+          <a href="#inicio" className="hover:text-[#D9AD6A] transition">
+            Início
+          </a>
+          <a href="#sobre" className="hover:text-[#D9AD6A] transition">
+            Sobre
+          </a>
+          <a href="#servicos" className="hover:text-[#D9AD6A] transition">
+            Serviços
+          </a>
+          <a href="#contato" className="hover:text-[#D9AD6A] transition">
+            Contato
+          </a>
+        </nav>
+
+        {/* Botão Mobile */}
+        <button
+          className="md:hidden text-[#D9AD6A] focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Menu Mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-[#4C0C16]/95 backdrop-blur-md border-t border-[#D9AD6A]/20">
+          <nav className="flex flex-col items-center space-y-5 py-6 text-white font-medium">
+            <a
+              href="#inicio"
+              className="hover:text-[#D9AD6A] transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Início
+            </a>
+            <a
+              href="#sobre"
+              className="hover:text-[#D9AD6A] transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Sobre
+            </a>
+            <a
+              href="#servicos"
+              className="hover:text-[#D9AD6A] transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Serviços
+            </a>
+            <a
+              href="#contato"
+              className="hover:text-[#D9AD6A] transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contato
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
