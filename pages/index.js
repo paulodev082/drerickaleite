@@ -8,21 +8,21 @@ export default function Home() {
       {/* HERO */}
       <section
         id="inicio"
-        className="relative flex flex-col md:flex-row items-center justify-between text-white px-6 sm:px-10 md:px-20 pt-24 sm:pt-28 md:pt-32 pb-16 md:pb-20 min-h-[90vh] bg-cover bg-center overflow-hidden"
+        className="relative flex flex-col md:flex-row items-center justify-between text-white px-6 sm:px-10 md:px-20 pt-24 sm:pt-28 md:pt-32 pb-16 md:pb-20 min-h-screen bg-cover bg-center overflow-hidden"
         style={{
           backgroundImage: "url('/images/banner.jpg')",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: "scroll", // Corrigido: evita bug no mobile
         }}
       >
         {/* Camada escura elegante sobre o banner */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#2B0909]/95 via-[#4C0C16]/85 to-[#2B0909]/90"></div>
 
         {/* Efeito de brilho dourado suave */}
-        <div className="absolute w-[500px] h-[500px] bg-[#D9AD6A]/10 blur-3xl rounded-full -top-24 -left-24 animate-pulse"></div>
+        <div className="absolute w-[400px] h-[400px] bg-[#D9AD6A]/10 blur-3xl rounded-full -top-24 -left-24 animate-pulse"></div>
 
         {/* Conteúdo principal */}
         <motion.div
-          className="relative z-10 md:w-1/2 text-center md:text-left"
+          className="relative z-10 flex flex-col items-center md:items-start md:w-1/2 text-center md:text-left"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -31,15 +31,15 @@ export default function Home() {
             <span className="text-[#D9AD6A]">Dra.</span>{" "}
             <span className="text-white">Ericka Leite</span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-md mx-auto md:mx-0 leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-md leading-relaxed">
             Advocacia e Consultoria Jurídica —{" "}
             <br className="hidden md:block" />
             <span className="text-[#D9AD6A]/90">Ética e Excelência.</span>
           </p>
-          <div className="w-20 h-[3px] bg-[#D9AD6A] mt-8 rounded-full mx-auto md:mx-0"></div>
+          <div className="w-20 h-[3px] bg-[#D9AD6A] mt-8 rounded-full"></div>
 
           {/* Botão CTA */}
-          <div className="mt-10 flex justify-center md:justify-start">
+          <div className="mt-10">
             <a
               href="https://wa.me/5582988587947"
               target="_blank"
@@ -58,7 +58,7 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-[220px] h-[300px] sm:w-[280px] sm:h-[380px] md:w-[340px] md:h-[460px] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(217,173,106,0.3)] border-2 border-[#D9AD6A]/70 group">
+          <div className="relative w-[240px] h-[320px] sm:w-[300px] sm:h-[400px] md:w-[360px] md:h-[480px] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(217,173,106,0.3)] border-2 border-[#D9AD6A]/70 group">
             <Image
               src="/images/hero.jpg"
               alt="Dra. Ericka Leite"
