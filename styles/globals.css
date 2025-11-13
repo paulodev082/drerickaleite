@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #4C0C16;
+  --color-secondary: #D9AD6A;
+  --color-light: #FAF8F5;
+}
+
+/* Fundo padrão e rolagem suave */
+html, body {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Botões */
+.btn {
+  @apply px-8 py-3 rounded-md font-semibold transition duration-300;
+}
+
+.btn-gold {
+  @apply bg-[var(--color-secondary)] text-[var(--color-primary)] hover:bg-[#e5bb7a];
+}
+
+.btn-outline {
+  @apply border border-[var(--color-secondary)] text-[var(--color-secondary)] hover:bg-[var(--color-secondary)] hover:text-[var(--color-primary)];
+}
+
+/* Botão WhatsApp flutuante */
+.whatsapp-float {
+  @apply fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300;
+}
