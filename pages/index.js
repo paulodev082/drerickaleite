@@ -31,11 +31,11 @@ export default function Home() {
             <span className="text-[#D9AD6A]">Dra.</span>{" "}
             <span className="text-white">Ericka Leite</span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-md leading-relaxed">
-            Advocacia e Consultoria Jurídica —{" "}
-            <br className="hidden md:block" />
-            <span className="text-[#D9AD6A]/90">Ética e Excelência.</span>
-          </p>
+          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-md mx-auto md:mx-0 leading-relaxed">
+  Advocacia e Consultoria Jurídica
+  <br />
+  <span className="text-[#D9AD6A]/90">Ética e Excelência.</span>
+</p>
           <div className="w-20 h-[3px] bg-[#D9AD6A] mt-8 rounded-full"></div>
 
           {/* Botão CTA */}

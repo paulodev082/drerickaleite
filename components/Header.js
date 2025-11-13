@@ -13,8 +13,8 @@ export default function Header() {
         <div className="flex items-center space-x-3">
           <div className="relative w-14 h-14">
             <Image
-              src="/images/ERICKA01.jpg"
-              alt="Logo Dra. Ericka Leite"
+              src="/images/avatar.jpg"
+              alt="Logo Dra.Ericka Leite"
               fill
               className="object-contain"
             />
